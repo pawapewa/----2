@@ -1,6 +1,115 @@
 :root {
-    --primary: #626C54; 
+    --primary: #232d12; 
+    --accent: #DE1F26;  
+    --accent-hover: #B3171D;
     --text: #333333;
-    --bg-main: #FFFFFF;
+    --bg-main: #faf6f0;
+    --bg-light: #f4eee3; 
     --border: #E2E8F0;
+    --transition: 0.1s ease;
 }
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+html { scroll-behavior: smooth; }
+body {
+    background-color: var(--bg-main);
+    color: var(--text);
+    line-height: 1.6;
+}
+
+.container {
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+
+.header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: white;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+    z-index: 100; 
+}
+
+.header__inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 60px;
+}
+
+.nav { display: none; }
+
+.usluga {
+    padding: 140px 0 90px;
+    background-color: var(--primary);
+    color: white;
+    text-align: center;
+}
+
+.usluga h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+.usluga p {
+    font-size: 1.1rem;
+    margin-bottom: 30px;
+    opacity: 0.9;
+}
+
+.ppss {
+    padding: 140px 0 90px;
+    background-color: var(--bg-main);
+    color: white;
+    text-align: center;
+}
+
+.ppss h1{
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: #232d12;
+}
+
+.ppss p {
+    font-size: 1.1rem;
+    margin-bottom: 30px;    
+    color: #232d12;
+}
+
+@media (min-width: 768px) {
+    .nav {
+        display: flex;
+        gap: 25px;
+        align-items: center;
+    }
+    .nav a {
+        text-decoration: none;
+        color: var(--primary);
+        font-weight: 600;
+        transition: color var(--transition);
+    }
+    .nav a:hover { color: var(--accent); }
+    .hero h1 { font-size: 3.5rem; }
+    .order__inner, .contacts__inner {
+        grid-template-columns: 1fr 1fr;
+        align-items: center;
+    }
+    .footer__inner {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+}
+
+@media (max-width: 480px) {
+    /* Для совсем маленьких экранов скрываем шрифтовой логотип, оставляем только попугая, если не влезает */
+    .logo-text { max-width: 120px; }
+}       
